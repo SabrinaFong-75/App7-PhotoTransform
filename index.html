@@ -153,13 +153,13 @@
         context.fillText("Original image will go here", 10, 20);
       </script>
 
-     <canvas id="canvas2" width=700 height=600 style="border:2px solid #d3d3d3;"></canvas>
+     <canvas id="canvas2" width=600 height=500 style="border:2px solid #d3d3d3;"></canvas>
      <script> //This commences canvas 2 and puts the test on canvas 'myCanvas2'.
       var canvas2 = document.getElementById('canvas2');
-      var context2 = canvas.getContext("2d"); 
-      canvasContext2.font = '20pt Calibri'; //This sets the text font to the same as canvas 1.
-      canvasContext2.fillStyle = "black"; //This sets the text color to the same as canvas 1.
-      canvasContext2.fillText("Filtered image's location", 10, 20); //This plots the identifying text.
+      var context2 = canvas2.getContext("2d"); 
+      context2.font = '20pt Calibri'; //This sets the text font to the same as canvas 1.
+      context2.fillStyle = "black"; //This sets the text color to the same as canvas 1.
+      context2.fillText("Filtered image's location", 10, 20); //This plots the identifying text.
      </script>
 
     </div><!-- /content -->
