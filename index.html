@@ -103,7 +103,7 @@
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
           
          var canvas2 = document.getElementById('canvas2');
-         var context2 = canvas.getContext("2d");
+         var context2 = canvas2.getContext("2d");
          const originalImageData = context.getImageData(0, 0, 600, 500);
          // Make a copy of the original image data so we don't overwrite the original canvas
          const processedImageData = new ImageData(new Uint8ClampedArray(originalImageData.data), originalImageData.width, originalImageData.height);
