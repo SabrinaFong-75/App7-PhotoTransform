@@ -101,18 +101,22 @@
           /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
-          
+         // Get reference to the second canvas element
          var canvas2 = document.getElementById('canvas2');
+         // Get the 2D drawing context for canvas 2
          var context2 = canvas2.getContext("2d");
+         // Get the image data from the first canvas (original image)
          const originalImageData = context.getImageData(0, 0, 600, 500);
          // Make a copy of the original image data so we don't overwrite the original canvas
          const processedImageData = new ImageData(new Uint8ClampedArray(originalImageData.data), originalImageData.width, originalImageData.height);
-
+         // Access the pixel data array of the copied image
          const data = processedImageData.data;
+         // Loop through every pixel in the image
          for (let i = 0; i < data.length; i += 4) {
              data[i] = 0; // Set red channel to 0
              data[i + 1] = 0; // Set green channel to 0
-            
+             // Blue channel (data[i + 2]) is kept as is to preserve blue colors
+          
            }
         //After processing the image data to the second canvas.
         context2.putImageData(processedImageData, 0, 0); //This makes sure the image is inserted with only blue pixels.
@@ -146,23 +150,25 @@
         <input type="file" id="fileInput" STYLE="background-color: #FF6600;">
       </div>
       <div id="messageDisplayArea"></div>
-      
+
+     <!-- First canvas to display the original image -->
       <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
       <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
-        var canvas = document.getElementById('myCanvas');
-        var context = canvas.getContext("2d");
-        context.font = '20pt Calibri';
-        context.fillStyle = "black";
-        context.fillText("Original image will go here", 10, 20);
+        var canvas = document.getElementById('myCanvas'); // Get reference to first canvas
+        var context = canvas.getContext("2d"); // Get 2D drawing context
+        context.font = '20pt Calibri'; // Set text font
+        context.fillStyle = "black"; // Set text color
+        context.fillText("Original image will go here", 10, 20); // Draw placeholder text
       </script>
 
+     <!-- Second canvas to display the blue-filtered image -->
      <canvas id="canvas2" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
-     <script> //This commences canvas 2 and puts the test on canvas 'myCanvas2'.
-      var canvas2 = document.getElementById('canvas2');
-      var context2 = canvas2.getContext("2d"); 
+     <script> //This script initiates second canvas and adds placeholder text
+      var canvas2 = document.getElementById('canvas2'); // Get reference to second canvas
+      var context2 = canvas2.getContext("2d"); // Get 2D drawing context
       context2.font = '20pt Calibri'; //This sets the text font to the same as canvas 1.
       context2.fillStyle = "black"; //This sets the text color to the same as canvas 1.
-      context2.fillText("Filtered image's location", 10, 20); //This plots the identifying text.
+      context2.fillText("Filtered image's location", 10, 20); //This plots the placeholder text.
      </script>
 
     </div><!-- /content -->
